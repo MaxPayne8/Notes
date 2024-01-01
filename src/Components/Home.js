@@ -38,13 +38,13 @@ const Home = () => {
                   date={note.date}
                 />
                 <Link to={"/edit/" + note.id}>
-                  <button className="absolute bottom-11 left-11 opacity-0 group-hover:opacity-100 bg-blue-700 p-2 rounded-lg">
+                  <button className="absolute font-semibold bottom-11 left-11 opacity-0 group-hover:opacity-100 bg-blue-500 hover:bg-blue-700 p-1 sm:p-2 rounded-lg">
                     Edit
                   </button>
                 </Link>
 
                 <button
-                  className="absolute bottom-11 right-11 opacity-0 group-hover:opacity-100 bg-red-700 p-2 rounded-lg"
+                  className="absolute bottom-11 font-semibold right-11 opacity-0 group-hover:opacity-100 bg-red-500 hover:bg-red-700 p-1 sm:p-2 rounded-lg"
                   onClick={() => {
                     dispatch(addIndex(note.id));
                     dispatch(setSure(true));

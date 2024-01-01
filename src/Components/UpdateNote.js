@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { updateCard } from "../Utils/noteSlice";
+import ReactQuill from "react-quill";
 
 const UpdateNote = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const UpdateNote = () => {
   console.log(getNotes1);
 
   const [title, setTitle] = useState(getNotes1[0].title);
-  const [description, setDescription] = useState(getNotes1[0].description);
+  const [content, setContent] = useState(getNotes1[0].description);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     if (title.length) {
@@ -23,7 +24,7 @@ const UpdateNote = () => {
         updateCard({
           id: id,
           title: title,
-          description: description,
+          description: content,
         })
       );
       navigate("/");
@@ -67,15 +68,15 @@ const UpdateNote = () => {
         </div>
         <div className="flex flex-col p-2 my-4">
           <label className="p-2 m-2">Description</label>
-          <textarea
-            value={description}
-            type="text"
-            className="text-slate-900 p-2 m-2 rounded-lg"
-            rows="4"
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
+
+          <ReactQuill
+            theme="snow"
+            value={content}
+            onChange={setContent}
+            className="h-28"
+          />
         </div>
-        <button className="p-2 flex mx-auto bg-slate-700 text-white rounded-lg mb-2">
+        <button className="p-2 flex mx-auto mt-16 bg-slate-700 text-white rounded-lg mb-2">
           Update
         </button>
       </form>

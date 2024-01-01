@@ -25,7 +25,7 @@ const Header = () => {
         />
       </Link>
 
-      <div className="flex justify-evenly text-base w-full md:text-xl items-center">
+      <div className="flex justify-evenly text-sm w-full sm:text-xl items-center">
         <h1>{greetText}</h1>
         <h1>{date}</h1>
       </div>
