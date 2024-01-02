@@ -26,7 +26,11 @@ const Header = () => {
       </Link>
 
       <div className="flex justify-evenly text-sm w-full sm:text-xl items-center">
-        <h1>{greetText}</h1>
+        <div className="group hover:cursor-pointer w-40 ml-4 sm:ml-0">
+          <h1 className="group-hover:hidden">{greetText}</h1>
+          <h1 className="hidden group-hover:block">Have a nice Day!!</h1>
+        </div>
+
         <h1>{date}</h1>
       </div>
     </div>
