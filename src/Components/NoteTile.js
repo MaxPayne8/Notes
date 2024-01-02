@@ -15,24 +15,22 @@ const NoteTile = ({ title, description, date }) => {
           dangerouslySetInnerHTML={{
             __html: newDesc.length < 150 ? newDesc : `${newDesc}...`,
           }}
-          className="mt-2 break-words hidden md:block overflow-y-hidden "
+          className="mt-2 break-all h-[165px] hidden md:block overflow-y-hidden "
         />
       ) : (
         <></>
       )}
       {newDescMobile.length ? (
         <p
+          className="mt-2 break-all h-[120px] block md:hidden overflow-y-hidden "
           dangerouslySetInnerHTML={{
             __html:
               newDesc.lenghth < 75 ? newDescMobile : `${newDescMobile}...`,
           }}
-          className="mt-2 break-words block md:hidden "
         />
       ) : (
         <></>
       )}
-
-      {/* {} */}
 
       <label className="absolute top-0 left-0 group-hover:opacity-0">📌</label>
       <label className="absolute -bottom-0 -right-0 rounded-md group-hover:opacity-0 text-sm md:text-base bg-slate-600  text-slate-200 px-1">
