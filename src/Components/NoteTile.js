@@ -24,7 +24,7 @@ const NoteTile = ({ title, description, date }) => {
         <p
           className="mt-2 break-all h-[120px] block md:hidden overflow-y-hidden "
           dangerouslySetInnerHTML={{
-            __html: newDesc.lenghth < 75 ? newDescMobile : `${newDescMobile}..`,
+            __html: newDesc.length < 75 ? newDescMobile : `${newDescMobile}..`,
           }}
         />
       ) : (
