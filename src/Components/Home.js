@@ -27,7 +27,7 @@ const Home = () => {
               className="rounded-full w-40 hover:scale-110 transition ease-in-out"
             />
             <div className="group">
-              <h1 className="font-semibold mt-2 group-hover:hidden text-center">
+              <h1 className="font-semibold  group-hover:hidden text-center">
                 No Notes Added
               </h1>
               <Link to="/add">
