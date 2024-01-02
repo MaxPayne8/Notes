@@ -8,13 +8,11 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const AddNewNote = () => {
-  
   const title = useRef(null);
-  
+
   const [content, setContent] = useState("");
 
   const dispatch = useDispatch();
-  
 
   const navigate = useNavigate();
 
@@ -23,7 +21,6 @@ const AddNewNote = () => {
   const [datas, setDatas] = useState([]);
 
   const handleSubmit = (e) => {
-
     console.log(datas);
     e.preventDefault();
     var currentdate = new Date();
@@ -91,7 +88,7 @@ const AddNewNote = () => {
           />
           {error && (
             <label className="text-red-700 ml-4 font-semibold">
-              Name is required!!
+              Title is required!!
             </label>
           )}
         </div>

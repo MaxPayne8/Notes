@@ -62,7 +62,7 @@ const UpdateNote = () => {
           />
           {error && (
             <label className="text-red-700 ml-4 font-semibold">
-              Name is required!!
+              Title is required!!
             </label>
           )}
         </div>
