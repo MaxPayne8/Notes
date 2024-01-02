@@ -21,7 +21,7 @@ const Header = () => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/3208/3208820.png"
           alt="app-logo"
-          className="w-10 h-10 mx-3"
+          className="w-10 h-10 mx-3 hover:scale-110 transition ease-in-out"
         />
       </Link>
 
