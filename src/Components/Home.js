@@ -19,7 +19,7 @@ const Home = () => {
       <SideBar />
 
       <div className="relative w-full bg-slate-200 min-h-screen  ">
-        {!getNotes.length ? (
+        {!getNotes?.length ? (
           <div className="flex justify-center items-center   mt-28 flex-col ">
             <img
               src="https://static.vecteezy.com/system/resources/thumbnails/007/746/386/small/still-empty-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg"
