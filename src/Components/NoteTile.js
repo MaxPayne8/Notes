@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setSure } from "../Utils/noteSlice";
+import React from "react";
 
 const NoteTile = ({ title, description, date }) => {
   const newTitle = title.substring(0, 15);

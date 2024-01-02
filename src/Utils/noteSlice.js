@@ -6,8 +6,6 @@ const noteSlice = createSlice({
     notes: null,
     sure: false,
     index: null,
-    myCards: true,
-    sampleCards: true,
   },
   reducers: {
     addNote: (state, action) => {
@@ -31,31 +29,14 @@ const noteSlice = createSlice({
       getNotes[index].description = description;
       getNotes[index].title = title;
       window.localStorage.setItem("Notes", JSON.stringify(getNotes));
-
-      //   state.cards[index].author = author;
-      //   state.cards[index].download_url = download_url;
-      //   state.cards[index].description = description;
     },
     addIndex: (state, action) => {
       state.index = action.payload;
     },
-    showSampleCard: (state, action) => {
-      state.myCards = action.payload;
-    },
-    showMyCards: (state, action) => {
-      state.sampleCards = action.payload;
-    },
   },
 });
 
-export const {
-  addNote,
-  setSure,
-  deleteNote,
-  updateCard,
-  addIndex,
-  showMyCards,
-  showSampleCard,
-} = noteSlice.actions;
+export const { addNote, setSure, deleteNote, updateCard, addIndex } =
+  noteSlice.actions;
 
 export default noteSlice.reducer;

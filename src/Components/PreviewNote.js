@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 const PreviewNote = () => {
   const { id } = useParams();
-  console.log(id);
   var getNotes = JSON.parse(window.localStorage.getItem("Notes"));
   console.log(getNotes);
   const getNotes1 = getNotes.filter((note) => note.id == id);

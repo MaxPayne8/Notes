@@ -1,20 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addNote } from "../Utils/noteSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import JoditEditor from "jodit-react";
+
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const AddNewNote = () => {
-  const editor = useRef("");
+  
   const title = useRef(null);
-  const description = useRef(null);
+  
   const [content, setContent] = useState("");
 
   const dispatch = useDispatch();
-  const { notes } = useSelector((store) => store.note);
+  
 
   const navigate = useNavigate();
 
@@ -23,8 +23,7 @@ const AddNewNote = () => {
   const [datas, setDatas] = useState([]);
 
   const handleSubmit = (e) => {
-    // console.log(datas);
-    // window.localStorage.setItem("data", JSON.stringify(datas));
+
     console.log(datas);
     e.preventDefault();
     var currentdate = new Date();

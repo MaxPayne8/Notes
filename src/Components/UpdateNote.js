@@ -6,7 +6,7 @@ import ReactQuill from "react-quill";
 
 const UpdateNote = () => {
   const { id } = useParams();
-  console.log(id);
+
   const dispatch = useDispatch();
 
   var getNotes = JSON.parse(window.localStorage.getItem("Notes"));
