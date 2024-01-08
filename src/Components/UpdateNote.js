@@ -74,7 +74,17 @@ const UpdateNote = () => {
             value={content}
             onChange={setContent}
             className="h-28"
-            modules={{ toolbar: [["bold"], ["italic"], ["underline"]] }}
+            modules={{
+              toolbar: [
+                ["bold"],
+                ["italic"],
+                ["underline"],
+                ["strike"],
+                [{ list: "ordered" }, { list: "bullet" }],
+                ["link", "image"],
+                ["clean"],
+              ],
+            }}
           />
         </div>
         <button className="p-2 flex mx-auto mt-16 bg-slate-700 text-white rounded-lg mb-2">
