@@ -6,7 +6,7 @@ const NoteTile = ({ title, description, date }) => {
   const newDescMobile = description.substring(0, 75);
 
   return (
-    <div className="relative w-44 h-44 sm:w-60 sm:h-60 rounded-lg shadow-lg shadow-slate-700 border-black border-2 bg-slate-300 p-2 m-10 tranform hover:scale-110 md:hover:scale-125 transition ease-in-out group">
+    <div className="relative w-44 h-44 sm:w-60 sm:h-60 rounded-lg shadow-lg shadow-slate-700 border-black border-2 bg-slate-300 p-2 m-10 tranform md:hover:scale-125 transition ease-in-out group">
       <h1 className="text-center z-20 sm:text-xl break-words ">
         {newTitle.length < 15 ? title : `${newTitle}..`}
       </h1>

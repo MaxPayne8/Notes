@@ -100,6 +100,7 @@ const AddNewNote = () => {
             value={content}
             onChange={setContent}
             className="h-28"
+            modules={{ toolbar: [["bold"], ["italic"], ["underline"]] }}
           />
         </div>
         <button className="p-2 flex mx-auto bg-slate-700 text-white rounded-lg mt-16 mb-2">

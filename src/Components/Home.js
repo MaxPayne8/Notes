@@ -4,6 +4,8 @@ import NoteTile from "./NoteTile";
 import { useDispatch, useSelector } from "react-redux";
 import { addIndex, deleteNote, setSure } from "../Utils/noteSlice";
 import { Link } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const Home = () => {
   ///snd
@@ -48,21 +50,34 @@ const Home = () => {
                     date={note.date}
                   />
                   <Link to={"/edit/" + note.id}>
-                    <button className="absolute font-semibold text-slate-200 bottom-1 left-11 opacity-0 group-hover:opacity-100 bg-blue-500 hover:bg-blue-600 p-1  rounded-lg">
-                      Edit
+                    <button className="absolute hidden md:block font-semibold text-slate-200 bottom-1 left-11 opacity-0 group-hover:opacity-100 bg-blue-500 hover:bg-blue-600 p-1  rounded-lg">
+                      <FaEdit size={25} />
+                    </button>
+                    <button className="absolute md:hidden font-semibold text-slate-200 -bottom-3 left-9   bg-blue-500 hover:bg-blue-600 p-1  rounded-lg">
+                      <FaEdit />
                     </button>
                   </Link>
 
                   <Link to="/">
                     <button
-                      className="absolute bottom-1 font-semibold text-slate-200  right-11 opacity-0 group-hover:opacity-100 bg-red-500 hover:bg-red-600 p-1  rounded-lg"
+                      className="absolute bottom-1 hidden md:block font-semibold text-slate-200  right-11 opacity-0 group-hover:opacity-100 bg-red-500 hover:bg-red-600 p-1  rounded-lg"
                       onClick={() => {
                         dispatch(addIndex(note.id));
                         dispatch(setSure(true));
                         window.scroll(0, 0);
                       }}
                     >
-                      Delete
+                      <MdDelete size={25} />
+                    </button>
+                    <button
+                      className="absolute -bottom-3 md:hidden font-semibold   right-9  bg-red-500 hover:bg-red-600 p-1  rounded-lg"
+                      onClick={() => {
+                        dispatch(addIndex(note.id));
+                        dispatch(setSure(true));
+                        window.scroll(0, 0);
+                      }}
+                    >
+                      <MdDelete />
                     </button>
                   </Link>
                 </div>
