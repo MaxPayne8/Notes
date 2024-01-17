@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import SideBar from "./SideBar";
 import NoteTile from "./NoteTile";
 import { useDispatch, useSelector } from "react-redux";
-import { addIndex, deleteNote, setSure } from "../Utils/noteSlice";
+import { addIndex, deleteNote } from "../Utils/noteSlice";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -108,7 +108,7 @@ const Home = () => {
         )}
         {sure && (
           <div
-            className="absolute top-0 right-0 bottom-0 left-0 w-[30%] h-44 rounded-lg border-2 border-black m-auto backdrop-blur-md  "
+            className="absolute top-0 right-0 bottom-0 left-0 w-[30%] h-44 rounded-lg border-4 border-blue-700 m-auto backdrop-blur-md  "
             ref={outside}
           >
             <h1 className="text-center mt-[70%] sm:mt-[15%] text-xl">
