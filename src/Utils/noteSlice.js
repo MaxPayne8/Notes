@@ -4,16 +4,14 @@ const noteSlice = createSlice({
   name: "note",
   initialState: {
     notes: null,
-    sure: false,
+   
     index: null,
   },
   reducers: {
     addNote: (state, action) => {
       state.notes = action.payload;
     },
-    setSure: (state, action) => {
-      state.sure = action.payload;
-    },
+   
     deleteNote: (state, action) => {
       var getNotes = JSON.parse(window.localStorage.getItem("Notes"));
       const index = action.payload;
@@ -36,7 +34,7 @@ const noteSlice = createSlice({
   },
 });
 
-export const { addNote, setSure, deleteNote, updateCard, addIndex } =
+export const { addNote, deleteNote, updateCard, addIndex } =
   noteSlice.actions;
 
 export default noteSlice.reducer;

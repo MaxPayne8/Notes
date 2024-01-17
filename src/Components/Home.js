@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SideBar from "./SideBar";
 import NoteTile from "./NoteTile";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,15 +12,36 @@ const Home = () => {
   const getNotes = JSON.parse(window.localStorage.getItem("Notes"));
   const dispatch = useDispatch();
   console.log(getNotes);
-  const { sure, index, notes } = useSelector((store) => store.note);
+  const { index, notes } = useSelector((store) => store.note);
+  const [sure, setSure] = useState(false);
   console.log(sure);
   console.log(notes);
+  const outside = useRef();
+  useEffect(() => {
+    let handler = (e) => {
+      console.log(outside.current);
+      console.log(e.target);
+      console.log(outside.current === e.target);
+      console.log(outside?.current?.contains(e.target));
+      if (!outside?.current?.contains(e.target)) {
+        setSure(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
 
   return (
     <div className="flex  ">
       <SideBar />
 
-      <div className="relative w-full bg-slate-200 min-h-screen  ">
+      <div
+        className={`relative w-full bg-slate-200 min-h-screen ${
+          sure ? "backdrop-blur-sm" : ""
+        } `}
+      >
         {!getNotes?.length ? (
           <div className="flex justify-center items-center   mt-28 flex-col ">
             <img
@@ -40,7 +61,7 @@ const Home = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-wrap justify-evenly m-4   ">
+          <div className={` flex flex-wrap justify-evenly m-4   `}>
             {getNotes?.map((note, index) => (
               <Link to={"/preview/" + note.id}>
                 <div className="relative group">
@@ -63,7 +84,7 @@ const Home = () => {
                       className="absolute bottom-1 hidden md:block font-semibold text-slate-200  right-11 opacity-0 group-hover:opacity-100 bg-red-500 hover:bg-red-600 p-1  rounded-lg"
                       onClick={() => {
                         dispatch(addIndex(note.id));
-                        dispatch(setSure(true));
+                        setSure(true);
                         window.scroll(0, 0);
                       }}
                     >
@@ -73,7 +94,7 @@ const Home = () => {
                       className="absolute -bottom-3 md:hidden font-semibold   right-9  bg-red-500 hover:bg-red-600 p-1  rounded-lg"
                       onClick={() => {
                         dispatch(addIndex(note.id));
-                        dispatch(setSure(true));
+                        setSure(true);
                         window.scroll(0, 0);
                       }}
                     >
@@ -86,7 +107,10 @@ const Home = () => {
           </div>
         )}
         {sure && (
-          <div className="absolute top-0 bottom-0 right-0 left-0 backdrop-blur-sm">
+          <div
+            className="absolute top-0 right-0 bottom-0 left-0 w-[30%] h-44 rounded-lg border-2 border-black m-auto backdrop-blur-md  "
+            ref={outside}
+          >
             <h1 className="text-center mt-[70%] sm:mt-[15%] text-xl">
               Are you sure?
             </h1>
@@ -95,14 +119,14 @@ const Home = () => {
                 className="m-6 tranform hover:scale-150 p-2 scale-125 transition ease-in-out hover:cursor-pointer "
                 onClick={() => {
                   dispatch(deleteNote(index));
-                  dispatch(setSure(false));
+                  setSure(false);
                 }}
               >
                 ✅
               </label>
               <label
                 className="m-6 tranform hover:scale-150 p-2 scale-125 transition ease-in-out hover:cursor-pointer"
-                onClick={() => dispatch(setSure(false))}
+                onClick={() => setSure(false)}
               >
                 ❌
               </label>
