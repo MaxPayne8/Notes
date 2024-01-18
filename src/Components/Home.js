@@ -108,12 +108,10 @@ const Home = () => {
         )}
         {sure && (
           <div
-            className="absolute top-0 right-0 bottom-0 left-0 w-[30%] h-44 rounded-lg border-4 border-blue-700 m-auto backdrop-blur-md  "
+            className="absolute top-0 right-0 bottom-0 left-0 w-[60%]  md:w-[30%] h-28 rounded-lg border-4 border-blue-700 m-auto backdrop-blur-md  "
             ref={outside}
           >
-            <h1 className="text-center mt-[70%] sm:mt-[15%] text-xl">
-              Are you sure?
-            </h1>
+            <h1 className="text-center  text-xl mt-2">Are you sure?</h1>
             <div className="flex justify-center">
               <label
                 className="m-6 tranform hover:scale-150 p-2 scale-125 transition ease-in-out hover:cursor-pointer "
